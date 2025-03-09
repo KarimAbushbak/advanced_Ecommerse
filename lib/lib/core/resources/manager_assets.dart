@@ -33,7 +33,7 @@ class ManagerAssets {
   static const String home13 = 'assets/images/home/home13.png';
   static const String home14 = 'assets/images/home/home14.png';
   static const String home15 = 'assets/images/home/home15.png';
-  static const String home16 = 'assets/images/home/home16.png';
+  static const String home16 = 'assets/images/home/home16.jpg';
   static const String home17 = 'assets/images/home/home17.png';
   static const String home18 = 'assets/images/home/home18.png';
   static const String home19 = 'assets/images/home/home19.png';

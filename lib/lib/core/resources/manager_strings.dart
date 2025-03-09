@@ -34,5 +34,6 @@ class ManagerStrings {
   static const String accessory = 'Accessory ';
   static const String brand = 'Brand ';
   static const String dress = 'Dresses ';
+  static const String seasonNew = 'Season New ';
 
 }

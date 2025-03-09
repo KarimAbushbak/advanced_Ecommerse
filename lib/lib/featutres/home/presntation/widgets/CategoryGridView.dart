@@ -16,9 +16,8 @@ class CategoryListView extends StatelessWidget {
         itemCount: categories.length,
         itemBuilder: (context, index) {
           return Padding(
-            padding: EdgeInsets.only(right: 10), // Space between items
+            padding: EdgeInsets.symmetric(horizontal: 5), // Space between items
             child: Column(
-              mainAxisSize: MainAxisSize.min,
               children: [
                 CircleAvatar(
                   backgroundColor: categories[index].color.withOpacity(0.2),
