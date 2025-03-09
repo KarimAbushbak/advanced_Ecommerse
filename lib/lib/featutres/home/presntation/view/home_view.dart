@@ -177,116 +177,128 @@ class HomeView extends StatelessWidget {
               SizedBox(
                 height: ManagerHeight.h20,
               ),
-
-              Obx(()=>Stack(
-                children: [
-                  Container(
-                    margin: EdgeInsets.symmetric(horizontal: ManagerWidth.w16),
-                    child: Row(
-                      mainAxisAlignment: MainAxisAlignment.start,
-                      children: [
-                        Text(
-                          ManagerStrings.seasonNew,
-                          style: TextStyle(
-                              fontFamily: ManagerFontFamily.appFont,
-                              fontWeight: ManagerFontWeight.bold,
-                              fontSize: ManagerFontSizes.s20),
+              Obx(() => Stack(
+                    children: [
+                      Container(
+                        margin:
+                            EdgeInsets.symmetric(horizontal: ManagerWidth.w16),
+                        child: Row(
+                          mainAxisAlignment: MainAxisAlignment.start,
+                          children: [
+                            Text(
+                              ManagerStrings.seasonNew,
+                              style: TextStyle(
+                                  fontFamily: ManagerFontFamily.appFont,
+                                  fontWeight: ManagerFontWeight.bold,
+                                  fontSize: ManagerFontSizes.s20),
+                            ),
+                          ],
                         ),
-                      ],
-                    ),
-                  ),
-
-                  Positioned(
-                    top: 50,
-                    child: Container(
-                      width: 470,
-                      height: 161,
-                      decoration: BoxDecoration(
-                          image: DecorationImage(
-                              fit: BoxFit.cover,
-                              image: AssetImage(ManagerAssets.home16))),
-                    ),
-                  ),
-                  controller.isMale.value?
-                  Row(
-                    children: [
-                      Container(margin: EdgeInsets.only(top: 20),
-                        width: 86,
-                        height: 190,
-                        decoration: BoxDecoration(
-                            image: DecorationImage(
-                                fit: BoxFit.cover,
-                                image: AssetImage(ManagerAssets.home13))),
                       ),
-                      Container(
-                        margin: EdgeInsets.only(bottom: 20),
-                        width: 86,
-                        height: 200,
-                        decoration: BoxDecoration(
-                            image: DecorationImage(
-                                fit: BoxFit.cover,
-                                image: AssetImage(ManagerAssets.home12))),
+                      Positioned(
+                        top: ManagerHeight.h50,
+                        child: Container(
+                          width: ManagerWidth.w470,
+                          height: ManagerHeight.h161,
+                          decoration: BoxDecoration(
+                              image: DecorationImage(
+                                  fit: BoxFit.cover,
+                                  image: AssetImage(ManagerAssets.home16))),
+                        ),
                       ),
-                      SizedBox(width: 10,),
-                      Container(
-                        margin: EdgeInsets.only(top: 41),
-                        width: 85,
-                        height: 110,
-                        decoration: BoxDecoration(
-                            image: DecorationImage(
-                                fit: BoxFit.cover,
-                                image: AssetImage(ManagerAssets.home14))),
-                      ),
-                      Container(
-                        margin: EdgeInsets.only(top: 30),
-                        width: 125,
-                        height: 157,
-                        decoration: BoxDecoration(
-                            image: DecorationImage(
-                                fit: BoxFit.cover,
-                                image: AssetImage(ManagerAssets.home15))),
-                      ),
+                      controller.isMale.value
+                          ? Row(
+                              children: [
+                                Container(
+                                  margin: EdgeInsets.only(top: ManagerHeight.h20),
+                                  width: ManagerWidth.w68,
+                                  height: ManagerHeight.h190,
+                                  decoration: BoxDecoration(
+                                      image: DecorationImage(
+                                          fit: BoxFit.cover,
+                                          image: AssetImage(
+                                              ManagerAssets.home13))),
+                                ),
+                                Container(
+                                  margin: EdgeInsets.only(bottom: ManagerHeight.h20),
+                                  width: ManagerWidth.w86,
+                                  height: ManagerHeight.h200,
+                                  decoration: BoxDecoration(
+                                      image: DecorationImage(
+                                          fit: BoxFit.cover,
+                                          image: AssetImage(
+                                              ManagerAssets.home12))),
+                                ),
+                                SizedBox(
+                                  width: ManagerWidth.w10,
+                                ),
+                                Container(
+                                  margin: EdgeInsets.only(top: ManagerHeight.h40),
+                                  width: ManagerWidth.w85,
+                                  height: ManagerHeight.h110,
+                                  decoration: BoxDecoration(
+                                      image: DecorationImage(
+                                          fit: BoxFit.cover,
+                                          image: AssetImage(
+                                              ManagerAssets.home14))),
+                                ),
+                                Container(
+                                  margin: EdgeInsets.only(top: ManagerHeight.h30),
+                                  width: ManagerWidth.w125,
+                                  height: ManagerHeight.h155,
+                                  decoration: BoxDecoration(
+                                      image: DecorationImage(
+                                          fit: BoxFit.cover,
+                                          image: AssetImage(
+                                              ManagerAssets.home15))),
+                                ),
+                              ],
+                            )
+                          : Row(
+                              children: [
+                                Container(
+                                  margin: EdgeInsets.only(top: ManagerHeight.h20),
+                                  width: ManagerWidth.w86,
+                                  height: ManagerHeight.h190,
+                                  decoration: BoxDecoration(
+                                      image: DecorationImage(
+                                          fit: BoxFit.cover,
+                                          image: AssetImage(
+                                              ManagerAssets.home17))),
+                                ),
+                                Container(
+                                  margin: EdgeInsets.only(top: ManagerHeight.h100),
+                                  width: ManagerWidth.w80,
+                                  height: ManagerHeight.h80,
+                                  decoration: BoxDecoration(
+                                      image: DecorationImage(
+                                          fit: BoxFit.cover,
+                                          image: AssetImage(
+                                              ManagerAssets.home18))),
+                                ),
+                                Container(
+                                  width:ManagerWidth.w80,
+                                  height: ManagerHeight.h70,
+                                  decoration: BoxDecoration(
+                                      image: DecorationImage(
+                                          fit: BoxFit.cover,
+                                          image: AssetImage(
+                                              ManagerAssets.home19))),
+                                ),
+                                Container(
+                                  margin: EdgeInsets.only(top: ManagerHeight.h100),
+                                  width: ManagerWidth.w140,
+                                  height: ManagerHeight.h100,
+                                  decoration: BoxDecoration(
+                                      image: DecorationImage(
+                                          fit: BoxFit.cover,
+                                          image: AssetImage(
+                                              ManagerAssets.home20))),
+                                ),
+                              ],
+                            )
                     ],
-                  ):Row(
-                    children: [
-                      Container(margin: EdgeInsets.only(top: 20),
-                        width: 86,
-                        height: 190,
-                        decoration: BoxDecoration(
-                            image: DecorationImage(
-                                fit: BoxFit.cover,
-                                image: AssetImage(ManagerAssets.home17))),
-                      ),
-                      Container(margin: EdgeInsets.only(top: 100),
-                        width: 80,
-                        height: 80,
-                        decoration: BoxDecoration(
-                            image: DecorationImage(
-                                fit: BoxFit.cover,
-                                image: AssetImage(ManagerAssets.home18))),
-                      ),
-                      Container(
-                        width: 80,
-                        height: 70,
-                        decoration: BoxDecoration(
-                            image: DecorationImage(
-                                fit: BoxFit.cover,
-                                image: AssetImage(ManagerAssets.home19))),
-                      ),
-                      Container(
-                        margin: EdgeInsets.only(top: 100),
-                        width: 140,
-                        height: 100,
-                        decoration: BoxDecoration(
-                            image: DecorationImage(
-                                fit: BoxFit.cover,
-                                image: AssetImage(ManagerAssets.home20))),
-                      ),
-
-                    ],
-                  )
-                ],
-              ))
+                  ))
             ],
           ),
         ),
