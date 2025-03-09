@@ -7,6 +7,7 @@ import 'package:flutter/material.dart';
 import '../config/dependancy_injection.dart';
 import '../featutres/authntication/presntaion/view/login_view.dart';
 import '../featutres/authntication/presntaion/view/register_view.dart';
+import '../featutres/home/presntation/view/home_view.dart';
 import '../featutres/outboarding/presntation/view/outboarding_view.dart';
 import '../featutres/splash/presntation/view/splash_screen.dart';
 
@@ -38,9 +39,9 @@ class RouteGenerator {
       case Routes.registerView:
         initAuth();
         return MaterialPageRoute(builder: (_) =>  RegisterView());
-      // case Routes.homeView:
-      //   initHome();
-      //   return MaterialPageRoute(builder: (_) =>  HomeView());
+      case Routes.homeView:
+        initHome();
+        return MaterialPageRoute(builder: (_) =>  HomeView());
       // case Routes.profileView:
       //   initHome();
       //   return MaterialPageRoute(builder: (_) =>  ProfileView());

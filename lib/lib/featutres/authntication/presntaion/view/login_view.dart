@@ -219,7 +219,9 @@ class LoginView extends StatelessWidget {
                 ),
               ),
               ElevatedButton(
-                  onPressed: () {},
+                  onPressed: () {
+                    Get.offAllNamed(Routes.homeView);
+                  },
                   style: ElevatedButton.styleFrom(
                     backgroundColor: ManagerColors.transparent,
                     elevation: 0,

@@ -7,10 +7,7 @@ class AuthController extends GetxController{
     checkboxValue=!checkboxValue;
     update();
   }
-  changeTap(){
-    isEmailTab=!isEmailTab;
-    update();
-  }
+
 
 @override
   void onInit() {

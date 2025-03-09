@@ -68,6 +68,7 @@ flutter:
     - assets/images/splash/
     - assets/images/out_boarding/
     - assets/images/auth/
+    - assets/images/home/
 
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware

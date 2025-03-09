@@ -11,7 +11,7 @@ import '../../../../core/resources/manager_width.dart';
 import '../controller/auth_controller.dart';
 
 class RegistrationForm extends StatelessWidget {
-  final bool isEmailTab; // Determines which tab is active
+  final bool isEmailTab;
 
   RegistrationForm({required this.isEmailTab});
 

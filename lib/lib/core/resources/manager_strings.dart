@@ -26,5 +26,13 @@ class ManagerStrings {
   static const String terms = 'Terms ';
   static const String and = 'And ';
   static const String conditions = 'Conditions ';
+  static const String men = 'Men ';
+  static const String women = 'Women ';
+  static const String clothes = 'Clothes ';
+  static const String bags = 'Bags ';
+  static const String shoes = 'Shoes ';
+  static const String accessory = 'Accessory ';
+  static const String brand = 'Brand ';
+  static const String dress = 'Dresses ';
 
 }

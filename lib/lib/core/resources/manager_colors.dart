@@ -3,7 +3,7 @@ import 'dart:ui';
 import 'package:flutter/material.dart';
 
 class ManagerColors {
-  static Color primaryColor = Colors.teal;
+  static Color primaryColor =Color(0xffFF73BF) ;
   static Color secondaryColor = Colors.brown;
   static Color brown200 = Colors.brown.shade300;
   static Color transparent = Colors.transparent;
@@ -14,5 +14,6 @@ class ManagerColors {
   static Color baseButtonColor =Color(0xffFF73BF) ;
   static Color baseButtonColorText =Color(0xff3F3F3F) ;
   static Color textFieldColor =Color(0xffEDF8FF) ;
+  static Color maleTextFieldColor =Color(0xfffadfee) ;
   static Color elevatedButtonBorderColor =Color(0xffC1E4FD) ;
 }
