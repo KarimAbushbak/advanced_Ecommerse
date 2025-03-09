@@ -5,7 +5,7 @@ import 'package:get/get_core/src/get_main.dart';
 
 import '../core/storage/local/database/shared_preferences/app_settings_shared_preferences.dart';
 import '../featutres/authntication/presntaion/controller/auth_controller.dart';
-import '../featutres/home/home_controller.dart';
+import '../featutres/home/presntation/controller/home_controller.dart';
 import '../featutres/splash/presntation/controller/splash_controller.dart';
 
 initModule() async {

@@ -99,6 +99,7 @@ class LoginView extends StatelessWidget {
                       height: ManagerHeight.h70,
                       child: TextField(
                         cursorColor: ManagerColors.primaryColor,
+                        controller: controller.emailTextEditingController,
                         decoration: InputDecoration(
                             border: OutlineInputBorder(
                               borderRadius: BorderRadius.circular(12),
@@ -136,14 +137,19 @@ class LoginView extends StatelessWidget {
                       width: ManagerWidth.w343,
                       height: ManagerHeight.h70,
                       child: TextField(
+                        obscureText: controller.showPassword,
+                        controller: controller.passwordTextEditingController,
                         cursorColor: ManagerColors.primaryColor,
                         decoration: InputDecoration(
                             suffixIcon: IconButton(
-                                onPressed: () {},
-                                icon: Icon(
-                                  Icons.visibility_off,
-                                  color: Colors.grey,
-                                )),
+                              onPressed: () => controller.changePasswordVisibility(),
+                              icon: controller.showPassword
+                                  ?  Icon(Icons.visibility_off,color: ManagerColors.primaryColor,)
+                                  :  Icon(
+                                Icons.visibility,
+                                color: ManagerColors.primaryColor,
+                              ),
+                            ),
                             border: OutlineInputBorder(
                               borderRadius: BorderRadius.circular(12),
                               // Rounded corners
@@ -220,7 +226,7 @@ class LoginView extends StatelessWidget {
               ),
               ElevatedButton(
                   onPressed: () {
-                    Get.offAllNamed(Routes.homeView);
+                    controller.preformLogin(context);
                   },
                   style: ElevatedButton.styleFrom(
                     backgroundColor: ManagerColors.transparent,
@@ -236,7 +242,12 @@ class LoginView extends StatelessWidget {
                           width: 2),
                     ),
                   ),
-                  child: Text(ManagerStrings.login)),
+                  child: Text(
+                      ManagerStrings.login,
+                    style: TextStyle(
+                      color: ManagerColors.black
+                    ),
+                  )),
               SizedBox(
                 height: ManagerHeight.h78,
               ),

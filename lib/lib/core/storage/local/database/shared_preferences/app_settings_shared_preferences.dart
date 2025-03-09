@@ -1,5 +1,6 @@
 import 'package:shared_preferences/shared_preferences.dart';
 import 'package:advanced_ecommerse/lib/core/extensions/extensions.dart';
+import '../../../../../featutres/authntication/presntaion/model/login_model.dart';
 import '../../../../constants.dart';
 
 class AppSettingsSharedPreferences {
@@ -48,36 +49,36 @@ class AppSettingsSharedPreferences {
   bool get LoggedIn =>
       _sharedPreferences.getBool(KeyConstants.loggedIn).onNull();
 
-  // Future<void> saveUserInfo(User user) async {
-  //   await _sharedPreferences.setInt(
-  //     KeyConstants.userId,
-  //     user.id,
-  //   );
-  //   await _sharedPreferences.setString(
-  //     KeyConstants.userType,
-  //     user.type,
-  //   );
-  //   await _sharedPreferences.setString(
-  //     KeyConstants.userName,
-  //     user.name,
-  //   );
-  //   await _sharedPreferences.setString(
-  //     KeyConstants.userEmail,
-  //     user.email,
-  //   );
-  //   await _sharedPreferences.setString(
-  //     KeyConstants.userAvatar,
-  //     user.avatar,
-  //   );
-  //   await _sharedPreferences.setString(
-  //     KeyConstants.userAvatarOriginal,
-  //     user.avatarOriginal,
-  //   );
-  //   await _sharedPreferences.setString(
-  //     KeyConstants.userPhone,
-  //     user.phone,
-  //   );
-  // }
+  Future<void> saveUserInfo(User user) async {
+    await _sharedPreferences.setInt(
+      KeyConstants.userId,
+      user.id,
+    );
+    await _sharedPreferences.setString(
+      KeyConstants.userType,
+      user.type,
+    );
+    await _sharedPreferences.setString(
+      KeyConstants.userName,
+      user.name,
+    );
+    await _sharedPreferences.setString(
+      KeyConstants.userEmail,
+      user.email,
+    );
+    await _sharedPreferences.setString(
+      KeyConstants.userAvatar,
+      user.avatar,
+    );
+    await _sharedPreferences.setString(
+      KeyConstants.userAvatarOriginal,
+      user.avatarOriginal,
+    );
+    await _sharedPreferences.setString(
+      KeyConstants.userPhone,
+      user.phone,
+    );
+  }
 
   String get userName =>
       _sharedPreferences.getString(KeyConstants.userName).onNull();

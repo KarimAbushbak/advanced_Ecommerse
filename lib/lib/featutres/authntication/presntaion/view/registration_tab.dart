@@ -39,14 +39,9 @@ class RegistrationForm extends StatelessWidget {
                     width: ManagerWidth.w343,
                     height: ManagerHeight.h70,
                     child: TextField(
+                      controller: controller.userNameTextEditingController,
                       cursorColor: ManagerColors.primaryColor,
                       decoration: InputDecoration(
-                          suffixIcon: IconButton(
-                              onPressed: () {},
-                              icon: Icon(
-                                Icons.visibility_off,
-                                color: Colors.grey,
-                              )),
                           border: OutlineInputBorder(
                             borderRadius: BorderRadius.circular(12),
                             // Rounded corners
@@ -82,6 +77,8 @@ class RegistrationForm extends StatelessWidget {
                     width: ManagerWidth.w343,
                     height: ManagerHeight.h70,
                     child: TextField(
+                      controller: controller.emailTextEditingController,
+
                       cursorColor: ManagerColors.primaryColor,
                       decoration: InputDecoration(
                           border: OutlineInputBorder(
@@ -124,14 +121,19 @@ class RegistrationForm extends StatelessWidget {
                     width: ManagerWidth.w343,
                     height: ManagerHeight.h70,
                     child: TextField(
+                      controller: controller.passwordTextEditingController,
+
                       cursorColor: ManagerColors.primaryColor,
                       decoration: InputDecoration(
-                          suffixIcon: IconButton(
-                              onPressed: () {},
-                              icon: Icon(
-                                Icons.visibility_off,
-                                color: Colors.grey,
-                              )),
+                          suffixIcon:IconButton(
+                            onPressed: () => controller.changePasswordVisibility(),
+                            icon: controller.showPassword
+                                ?  Icon(Icons.visibility_off, color: ManagerColors.primaryColor,)
+                                :  Icon(
+                              Icons.visibility,
+                              color: ManagerColors.primaryColor,
+                            ),
+                          ),
                           border: OutlineInputBorder(
                             borderRadius: BorderRadius.circular(12),
                             // Rounded corners
@@ -170,14 +172,19 @@ class RegistrationForm extends StatelessWidget {
                     width: ManagerWidth.w343,
                     height: ManagerHeight.h70,
                     child: TextField(
+                      controller: controller.confirmPasswordTextEditingController,
+
                       cursorColor: ManagerColors.primaryColor,
                       decoration: InputDecoration(
                           suffixIcon: IconButton(
-                              onPressed: () {},
-                              icon: Icon(
-                                Icons.visibility_off,
-                                color: Colors.grey,
-                              )),
+                            onPressed: () => controller.changeConfirmPasswordVisibility(),
+                            icon: controller.showConfirmPassword
+                                ?  Icon(Icons.visibility_off,color: ManagerColors.primaryColor,)
+                                :  Icon(
+                              Icons.visibility,
+                              color: ManagerColors.primaryColor,
+                            ),
+                          ),
                           border: OutlineInputBorder(
                             borderRadius: BorderRadius.circular(12),
                             // Rounded corners
@@ -194,6 +201,47 @@ class RegistrationForm extends StatelessWidget {
                           filled: true,
                           fillColor: ManagerColors.textFieldColor,
                           labelText: ManagerStrings.confirmPassword,
+                          labelStyle:
+                          TextStyle(color: ManagerColors.secondaryColor)),
+                    ),
+                  ),
+                  Container(
+                    child: Text(
+                      ManagerStrings.phoneNumber,
+                      style: TextStyle(
+                          fontFamily: ManagerFontFamily.appFont,
+                          fontSize: ManagerFontSizes.s20,
+                          fontWeight: ManagerFontWeight.w400),
+                    ),
+                  ),
+
+                  SizedBox(
+                    height: ManagerHeight.h14,
+                  ),
+                  Container(
+                    width: ManagerWidth.w343,
+                    height: ManagerHeight.h70,
+                    child: TextField(
+                      controller: controller.phoneTextEditingController,
+
+                      cursorColor: ManagerColors.primaryColor,
+                      decoration: InputDecoration(
+                          border: OutlineInputBorder(
+                            borderRadius: BorderRadius.circular(12),
+                            // Rounded corners
+                            borderSide: BorderSide.none, // No border
+                          ),
+                          enabledBorder: OutlineInputBorder(
+                            borderRadius: BorderRadius.circular(12),
+                            borderSide: BorderSide.none,
+                          ),
+                          focusedBorder: OutlineInputBorder(
+                            borderRadius: BorderRadius.circular(12),
+                            borderSide: BorderSide.none,
+                          ),
+                          filled: true,
+                          fillColor: ManagerColors.textFieldColor,
+                          labelText: ManagerStrings.phoneNumber,
                           labelStyle:
                           TextStyle(color: ManagerColors.secondaryColor)),
                     ),

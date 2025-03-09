@@ -20,7 +20,7 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         useMaterial3: true,
       ),
-      initialRoute: Routes.splashScreen,
+      initialRoute: Routes.homeView,
       onGenerateRoute: RouteGenerator.getRoute,
       debugShowCheckedModeBanner: false,
     );

@@ -35,5 +35,12 @@ class ManagerStrings {
   static const String brand = 'Brand ';
   static const String dress = 'Dresses ';
   static const String seasonNew = 'Season New ';
+  static const String home = 'Home';
+  static const String cart = 'Cart';
+  static const String shopFromBestSeller = 'Shop From the Best Seller';
+  static const String viewAll = 'View All';
+  static const String shopForTheFirstTime = 'Shop For the First Time';
+  static const String andGet = 'and Get 50%';
+
 
 }
