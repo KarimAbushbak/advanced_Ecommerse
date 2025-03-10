@@ -22,9 +22,10 @@ class HomeView extends StatelessWidget {
         length: 2,
         child: Scaffold(
           bottomNavigationBar: Obx(
-                () => BottomNavigationBar(
-              currentIndex: controller.selectedIndex.value,
-              onTap: controller.navigateToScreen, // Directly call the function
+            () => BottomNavigationBar(
+              currentIndex: controller.pageSelectedIndex.value,
+              onTap: controller.navigateToScreen,
+              // Directly call the function
               selectedItemColor: Colors.blueAccent,
               unselectedItemColor: Colors.grey,
               showUnselectedLabels: true,

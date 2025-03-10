@@ -17,4 +17,5 @@ class ManagerColors {
   static Color maleTextFieldColor =Color(0xfffadfee) ;
   static Color elevatedButtonBorderColor =Color(0xffC1E4FD) ;
   static Color bannerColor =Color(0xff6609FE) ;
+  static Color profileIconsColor =Color(0xff353535) ;
 }

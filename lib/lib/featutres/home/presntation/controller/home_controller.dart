@@ -23,7 +23,7 @@ class HomeController extends GetxController{
   };
 
   void navigateToScreen(int index) {
-    selectedIndex.value = index;
+    pageSelectedIndex.value = index;
 
     // Navigate using the map without an if statement
     Get.toNamed(routes[index]!);
@@ -45,9 +45,7 @@ class HomeController extends GetxController{
     isMale.value = index == 0;
   }
 
-  void changeTabIndex(int index) {
-    selectedIndex.value = index;
-  }
+
   productDetails(
       BuildContext context,
       int productId,

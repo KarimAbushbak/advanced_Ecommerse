@@ -43,6 +43,7 @@ class ManagerStrings {
   static const String viewAll = 'View All';
   static const String shopForTheFirstTime = 'Shop For the First Time';
   static const String andGet = 'and Get 50%';
+  static const String hello = 'Hello,';
 
 
 }

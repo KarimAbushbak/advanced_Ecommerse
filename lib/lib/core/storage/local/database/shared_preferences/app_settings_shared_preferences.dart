@@ -31,6 +31,10 @@ class AppSettingsSharedPreferences {
   Future<void> setDefaultLocale(String lang) async {
     await _sharedPreferences.setString(KeyConstants.localeKey, lang);
   }
+  Future<void> setUserName(String name) async {
+    await _sharedPreferences.setString(KeyConstants.userName, name);
+  }
+
 
   // String get defaultLocale =>
   //     _sharedPreferences.getString(KeyConstants.localeKey).parseLocale();
