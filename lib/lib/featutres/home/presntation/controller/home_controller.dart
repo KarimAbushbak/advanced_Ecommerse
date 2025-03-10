@@ -12,6 +12,22 @@ class HomeController extends GetxController{
   var selectedIndex = 0.obs;
   HomeModel homeModel = HomeModel(data: [], success: true, status: 200);
   HomeApiController homeApiController = HomeApiController();
+  var pageSelectedIndex = 0.obs;
+
+  final Map<int, String> routes = {
+    0: Routes.cartView,
+    1: Routes.brandView,
+    2: Routes.homeView,
+    3: Routes.settingsView,
+    4: Routes.profileView, // Profile tab
+  };
+
+  void navigateToScreen(int index) {
+    selectedIndex.value = index;
+
+    // Navigate using the map without an if statement
+    Get.toNamed(routes[index]!);
+  }
 
   void onInit() {
     super.onInit();

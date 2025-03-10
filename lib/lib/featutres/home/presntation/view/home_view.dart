@@ -22,9 +22,9 @@ class HomeView extends StatelessWidget {
         length: 2,
         child: Scaffold(
           bottomNavigationBar: Obx(
-            () => BottomNavigationBar(
+                () => BottomNavigationBar(
               currentIndex: controller.selectedIndex.value,
-              onTap: controller.changeTabIndex,
+              onTap: controller.navigateToScreen, // Directly call the function
               selectedItemColor: Colors.blueAccent,
               unselectedItemColor: Colors.grey,
               showUnselectedLabels: true,
@@ -43,12 +43,12 @@ class HomeView extends StatelessWidget {
                   label: ManagerStrings.home,
                 ),
                 BottomNavigationBarItem(
-                  icon: Icon(Icons.heart_broken),
-                  label: 'Profile',
+                  icon: Icon(Icons.settings),
+                  label: ManagerStrings.settings,
                 ),
                 BottomNavigationBarItem(
                   icon: Icon(Icons.person),
-                  label: 'Profile',
+                  label: ManagerStrings.profile,
                 ),
               ],
             ),
@@ -415,52 +415,43 @@ class HomeView extends StatelessWidget {
                   height: 10,
                 ),
                 Container(
-                  height: 100,
-                  width: 400,
-                  decoration: BoxDecoration(color: ManagerColors.bannerColor),
-                  child:Container(
-                    margin: EdgeInsets.only(top: 10),
-                    child: Column(
-                      children: [
-                        Text(
+                    height: 100,
+                    width: 400,
+                    decoration: BoxDecoration(color: ManagerColors.bannerColor),
+                    child: Container(
+                      margin: EdgeInsets.only(top: 10),
+                      child: Column(
+                        children: [
+                          Text(
                             ManagerStrings.shopForTheFirstTime,
-                          style: TextStyle(
-                            fontSize: ManagerFontSizes.s24,
-                            fontWeight: ManagerFontWeight.w800,
-                            color: ManagerColors.white,
-                            fontFamily: ManagerFontFamily.appFont
-
-
+                            style: TextStyle(
+                                fontSize: ManagerFontSizes.s24,
+                                fontWeight: ManagerFontWeight.w800,
+                                color: ManagerColors.white,
+                                fontFamily: ManagerFontFamily.appFont),
                           ),
-                        ),
-                        Text(
-                          ManagerStrings.andGet,
-                          style: TextStyle(
-                              fontSize: ManagerFontSizes.s24,
-                              fontWeight: ManagerFontWeight.w800,
-                              color: ManagerColors.white,
-                              fontFamily: ManagerFontFamily.appFont
-
-
+                          Text(
+                            ManagerStrings.andGet,
+                            style: TextStyle(
+                                fontSize: ManagerFontSizes.s24,
+                                fontWeight: ManagerFontWeight.w800,
+                                color: ManagerColors.white,
+                                fontFamily: ManagerFontFamily.appFont),
                           ),
-                        ),
-                      ],
-                    ),
-                  )
-                ),
+                        ],
+                      ),
+                    )),
                 SizedBox(
                   height: 10,
                 ),
                 Container(
-                  margin: EdgeInsets.symmetric(horizontal: ManagerWidth.w16),
-                  child: Text(
-                    "The Best Offer for your Area",
-                    style: TextStyle(
-                      fontSize: ManagerFontSizes.s16,
-                      fontWeight: ManagerFontWeight.w800
-                    ),
-                  )
-                ),
+                    margin: EdgeInsets.symmetric(horizontal: ManagerWidth.w16),
+                    child: Text(
+                      "The Best Offer for your Area",
+                      style: TextStyle(
+                          fontSize: ManagerFontSizes.s16,
+                          fontWeight: ManagerFontWeight.w800),
+                    )),
                 GridView.builder(
                   gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
                     crossAxisCount: 2, // 2 columns
@@ -468,22 +459,25 @@ class HomeView extends StatelessWidget {
                     mainAxisSpacing: 10, // Space between rows
                   ),
                   padding: EdgeInsets.all(10),
-                  itemCount: 4, // Only 4 images
+                  itemCount: 4,
+                  // Only 4 images
                   itemBuilder: (context, index) {
                     return Container(
                       decoration: BoxDecoration(
                         image: DecorationImage(
-                          image: NetworkImage(controller.homeModel.data[index].thumbnailImage), // Replace with your images
+                          image: NetworkImage(
+                              controller.homeModel.data[index].thumbnailImage),
+                          // Replace with your images
                           fit: BoxFit.cover, // Cover the whole container
                         ),
                         borderRadius: BorderRadius.circular(10),
                       ),
                     );
                   },
-                  shrinkWrap: true, // Prevent unnecessary scrolling
+                  shrinkWrap: true,
+                  // Prevent unnecessary scrolling
                   physics: NeverScrollableScrollPhysics(),
                 )
-
               ],
             ),
           ),

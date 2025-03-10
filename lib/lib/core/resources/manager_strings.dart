@@ -37,6 +37,8 @@ class ManagerStrings {
   static const String seasonNew = 'Season New ';
   static const String home = 'Home';
   static const String cart = 'Cart';
+  static const String profile = 'Profile';
+  static const String settings = 'Settings';
   static const String shopFromBestSeller = 'Shop From the Best Seller';
   static const String viewAll = 'View All';
   static const String shopForTheFirstTime = 'Shop For the First Time';

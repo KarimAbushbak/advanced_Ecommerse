@@ -1,5 +1,3 @@
-
-
 import 'package:advanced_ecommerse/lib/core/resources/manager_strings.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
@@ -9,6 +7,7 @@ import '../featutres/authntication/presntaion/view/login_view.dart';
 import '../featutres/authntication/presntaion/view/register_view.dart';
 import '../featutres/home/presntation/view/home_view.dart';
 import '../featutres/outboarding/presntation/view/outboarding_view.dart';
+import '../featutres/profile/presntation/view/profile_view.dart';
 import '../featutres/splash/presntation/view/splash_screen.dart';
 
 class Routes {
@@ -21,6 +20,9 @@ class Routes {
   static const String profileView = '/profileView';
   static const String localeView = '/localeView';
   static const String detailsView = '/detailsView';
+  static const String settingsView = '/settingsView';
+  static const String cartView = '/cartView';
+  static const String brandView = '/brandView';
 }
 
 class RouteGenerator {
@@ -35,16 +37,16 @@ class RouteGenerator {
         return MaterialPageRoute(builder: (_) => const OutBoardingView());
       case Routes.loginView:
         initAuth();
-        return MaterialPageRoute(builder: (_) =>  LoginView());
+        return MaterialPageRoute(builder: (_) => LoginView());
       case Routes.registerView:
         initAuth();
-        return MaterialPageRoute(builder: (_) =>  RegisterView());
+        return MaterialPageRoute(builder: (_) => RegisterView());
       case Routes.homeView:
         initHome();
-        return MaterialPageRoute(builder: (_) =>  HomeView());
-      // case Routes.profileView:
-      //   initHome();
-      //   return MaterialPageRoute(builder: (_) =>  ProfileView());
+        return MaterialPageRoute(builder: (_) => HomeView());
+      case Routes.profileView:
+        initHome();
+        return MaterialPageRoute(builder: (_) =>  ProfileView());
       // case Routes.detailsView:
       //   initHome();
       //   return MaterialPageRoute(builder: (_) =>  DetailsView());
@@ -52,8 +54,6 @@ class RouteGenerator {
       //   initLocale();
       //
       //   return MaterialPageRoute(builder: (_) =>  LocaleView());
-
-
 
       default:
         return unDefineRoute();
@@ -64,7 +64,7 @@ class RouteGenerator {
     return MaterialPageRoute(
       builder: (_) => Scaffold(
         appBar: AppBar(),
-        body:  Center(
+        body: Center(
           child: Text(ManagerStrings.notFoundRoute),
         ),
       ),
