@@ -44,6 +44,16 @@ class ManagerStrings {
   static const String shopForTheFirstTime = 'Shop For the First Time';
   static const String andGet = 'and Get 50%';
   static const String hello = 'Hello,';
+  static const String editName = 'Edit Name';
+  static const String newName = 'newName';
+  static const String cancel = 'Cancel';
+  static const String save = 'Save';
+  static const String edit = 'Edit';
+  static const String contactUs = 'Contact Us';
+  static const String helpCenter = 'Help Center';
+  static const String callUs = 'Call Us';
+  static const String sendEmail = 'Send Email';
+  static const String logout = 'Logout';
 
 
 }

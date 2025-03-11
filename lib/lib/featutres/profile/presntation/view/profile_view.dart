@@ -1,26 +1,23 @@
-import 'package:advanced_ecommerse/lib/core/resources/manager_colors.dart';
-import 'package:advanced_ecommerse/lib/core/resources/manager_font_sizes.dart';
-import 'package:advanced_ecommerse/lib/core/resources/manager_font_weight.dart';
-import 'package:advanced_ecommerse/lib/core/resources/manager_fonts.dart';
-import 'package:advanced_ecommerse/lib/core/resources/manager_height.dart';
-import 'package:advanced_ecommerse/lib/core/resources/manager_strings.dart';
-import 'package:advanced_ecommerse/lib/core/resources/manager_width.dart';
-import 'package:advanced_ecommerse/lib/core/routes.dart';
-import 'package:advanced_ecommerse/lib/featutres/home/presntation/controller/home_controller.dart';
+import 'package:advanced_ecommerse/lib/featutres/profile/controller/profile_controller.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:get/get_core/src/get_main.dart';
-import 'package:get/get_state_manager/src/rx_flutter/rx_obx_widget.dart';
-import 'package:get/get_state_manager/src/simple/get_state.dart';
-
 import '../../../../core/resources/manager_assets.dart';
+import '../../../../core/resources/manager_colors.dart';
+import '../../../../core/resources/manager_font_sizes.dart';
+import '../../../../core/resources/manager_font_weight.dart';
+import '../../../../core/resources/manager_fonts.dart';
+import '../../../../core/resources/manager_height.dart';
+import '../../../../core/resources/manager_strings.dart';
+import '../../../../core/resources/manager_width.dart';
+import '../../../../core/routes.dart';
+import '../../../home/presntation/controller/home_controller.dart';
 
 class ProfileView extends StatelessWidget {
   const ProfileView({super.key});
 
   @override
   Widget build(BuildContext context) {
-    return GetBuilder<HomeController>(builder: (controller) {
+    return GetBuilder<ProfileController>(builder: (controller) {
       return Scaffold(
         appBar: AppBar(
           elevation: 0,
@@ -84,7 +81,7 @@ class ProfileView extends StatelessWidget {
                 Container(
                   margin: EdgeInsets.symmetric(horizontal: ManagerWidth.w10),
                   child: Text(
-                    "Personal Profile",
+                    "الصفحة الشخصية",
                     style: TextStyle(
                         fontFamily: ManagerFontFamily.appFont,
                         fontSize: ManagerFontSizes.s24,
@@ -93,22 +90,45 @@ class ProfileView extends StatelessWidget {
                 ),
               ],
             ),
-            SizedBox(
-              height: ManagerHeight.h24,
-            ),
+            SizedBox(height: ManagerHeight.h24),
             Container(
               margin: EdgeInsets.symmetric(horizontal: ManagerWidth.w20),
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.spaceAround,
                 children: [
-                  Container(
-                    width: 140,
-                    height: 140,
-                    child: CircleAvatar(
-                      backgroundImage: AssetImage(ManagerAssets.home22),
-                    ),
+                  Column(
+                    children: [
+                      Container(
+                        width: 140,
+                        height: 140,
+                        child: CircleAvatar(
+                          backgroundImage: AssetImage(ManagerAssets.home22),
+                        ),
+                      ),
+                      SizedBox(
+                        height: ManagerHeight.h16,
+                      ),
+                      Row(
+                        children: [
+                          GestureDetector(
+                            onTap: () {
+                              controller.showEditDialog(context);
+                            },
+                            child: Icon(Icons.edit, color: Colors.grey),
+                          ),
+                          Text(
+                            ManagerStrings.edit,
+                            style: TextStyle(
+                                color: Colors.grey,
+                                fontSize: ManagerFontSizes.s16,
+                                fontFamily: ManagerFontFamily.appFont),
+                          )
+                        ],
+                      ),
+                    ],
                   ),
                   Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
                       Text.rich(
                         TextSpan(
@@ -130,17 +150,104 @@ class ProfileView extends StatelessWidget {
                           ],
                         ),
                       ),
-                      SizedBox(height: ManagerHeight.h5,),
+                      SizedBox(height: ManagerHeight.h5),
                       Text(controller.appSettingsSharedPreferences.userEmail,
                           style: TextStyle(
                               color: ManagerColors.black,
                               fontFamily: ManagerFontFamily.appFont,
                               fontSize: ManagerFontSizes.s20)),
                     ],
-                  )
+                  ),
                 ],
               ),
-            )
+            ),
+            SizedBox(
+              height: ManagerHeight.h14,
+            ),
+            Container(
+              padding: EdgeInsets.symmetric(
+                  horizontal: ManagerWidth.w10, vertical: 5),
+              width: double.infinity,
+              height: ManagerHeight.h30,
+              color: ManagerColors.maleTextFieldColor,
+              child: Text(
+                ManagerStrings.contactUs,
+                style: TextStyle(
+                    fontSize: ManagerFontSizes.s16,
+                    fontWeight: ManagerFontWeight.w400,
+                    fontFamily: ManagerFontFamily.appFont),
+              ),
+            ),
+            ListTile(
+              leading: Text(
+                ManagerStrings.helpCenter,
+                style: TextStyle(
+                    fontFamily: ManagerFontFamily.appFont,
+                    fontWeight: ManagerFontWeight.regular,
+                    fontSize: ManagerFontSizes.s16),
+              ),
+              trailing: Icon(
+                Icons.arrow_forward,
+              ),
+            ),
+            ListTile(
+              leading: Text(
+                ManagerStrings.callUs,
+                style: TextStyle(
+                    fontFamily: ManagerFontFamily.appFont,
+                    fontWeight: ManagerFontWeight.regular,
+                    fontSize: ManagerFontSizes.s16),
+              ),
+              trailing: Icon(
+                Icons.arrow_forward,
+              ),
+            ),
+            ListTile(
+              leading: Text(
+                ManagerStrings.sendEmail,
+                style: TextStyle(
+                    fontFamily: ManagerFontFamily.appFont,
+                    fontWeight: ManagerFontWeight.regular,
+                    fontSize: ManagerFontSizes.s16),
+              ),
+              trailing: Icon(
+                Icons.arrow_forward,
+              ),
+            ),
+            Container(
+              decoration: BoxDecoration(
+                gradient: LinearGradient(
+                  colors: [
+                    ManagerColors.greensh,
+                    ManagerColors.middle,
+                    ManagerColors.primaryColor
+                  ], // Your gradient colors
+                ),
+                borderRadius: BorderRadius.circular(8),
+              ),
+              child: ElevatedButton(
+                  onPressed: () {
+                    controller.logout();
+
+                  },
+                  style: ElevatedButton.styleFrom(
+                    backgroundColor: ManagerColors.transparent,
+                    elevation: 0,
+                    minimumSize: Size(
+                      ManagerWidth.w343,
+                      ManagerHeight.h40,
+                    ),
+                    shape: RoundedRectangleBorder(
+                      borderRadius: BorderRadius.circular(8),
+                      side: BorderSide(
+                          color: ManagerColors.transparent, width: 2),
+                    ),
+                  ),
+                  child: Text(
+                    ManagerStrings.logout,
+                    style: TextStyle(color: ManagerColors.black),
+                  )),
+            ),
           ],
         ),
       );

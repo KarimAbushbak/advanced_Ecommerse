@@ -45,7 +45,7 @@ class RouteGenerator {
         initHome();
         return MaterialPageRoute(builder: (_) => HomeView());
       case Routes.profileView:
-        initHome();
+        initProfile();
         return MaterialPageRoute(builder: (_) =>  ProfileView());
       // case Routes.detailsView:
       //   initHome();

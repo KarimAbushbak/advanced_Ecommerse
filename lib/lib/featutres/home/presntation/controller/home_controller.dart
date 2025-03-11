@@ -1,13 +1,15 @@
 import 'package:advanced_ecommerse/lib/core/storage/local/database/shared_preferences/app_settings_shared_preferences.dart';
 import 'package:flutter/cupertino.dart';
+import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
 import '../../../../core/routes.dart';
 import '../../data/data_source/home_api_controller.dart';
 import '../model/home_model.dart';
 
-class HomeController extends GetxController{
-  AppSettingsSharedPreferences appSettingsSharedPreferences= AppSettingsSharedPreferences();
+class HomeController extends GetxController {
+  AppSettingsSharedPreferences appSettingsSharedPreferences =
+  AppSettingsSharedPreferences();
   var isMale = true.obs;
   var selectedIndex = 0.obs;
   HomeModel homeModel = HomeModel(data: [], success: true, status: 200);
@@ -24,11 +26,10 @@ class HomeController extends GetxController{
 
   void navigateToScreen(int index) {
     pageSelectedIndex.value = index;
-
-    // Navigate using the map without an if statement
     Get.toNamed(routes[index]!);
   }
 
+  @override
   void onInit() {
     super.onInit();
     readHome();
@@ -39,12 +40,9 @@ class HomeController extends GetxController{
     update();
   }
 
-
-
   void changeMale(int index) {
     isMale.value = index == 0;
   }
-
 
   productDetails(
       BuildContext context,
@@ -62,7 +60,6 @@ class HomeController extends GetxController{
     homeModel.data.first.unit = unit;
     Navigator.pushNamed(context, Routes.detailsView);
   }
-
 
 
 }

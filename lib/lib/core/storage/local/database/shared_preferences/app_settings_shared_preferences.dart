@@ -17,6 +17,7 @@ class AppSettingsSharedPreferences {
     _sharedPreferences = await SharedPreferences.getInstance();
   }
 
+
   clear() {
     _sharedPreferences.clear();
   }
