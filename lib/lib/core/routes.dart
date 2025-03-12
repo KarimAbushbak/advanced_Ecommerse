@@ -1,4 +1,5 @@
 import 'package:advanced_ecommerse/lib/core/resources/manager_strings.dart';
+import 'package:advanced_ecommerse/lib/featutres/cart/presntation/view/cart_view.dart';
 import 'package:advanced_ecommerse/lib/featutres/settings/presentation/view/screen/settings_view.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
@@ -54,6 +55,9 @@ class RouteGenerator {
       case Routes.detailsView:
         initHome();
         return MaterialPageRoute(builder: (_) =>  DetailsView());
+      case Routes.cartView:
+        initHome();
+        return MaterialPageRoute(builder: (_) =>  CartView());
       // case Routes.localeView:
       //   initLocale();
       //

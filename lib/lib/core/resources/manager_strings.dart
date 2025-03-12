@@ -56,6 +56,9 @@ class ManagerStrings {
   static const String logout = 'Logout';
   static const String size = 'Size';
   static const String similarProducts = 'Similar Products';
+  static const String addToCart = 'Add to Cart';
+  static const String productAdded = 'Product Added';
+  static const String productHasBeenAdded = 'Product Has Been Added to Cart';
 
 
 }
