@@ -1,3 +1,4 @@
+import 'package:advanced_ecommerse/lib/core/resources/manager_strings.dart';
 import 'package:advanced_ecommerse/lib/core/storage/local/database/shared_preferences/app_settings_shared_preferences.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
@@ -15,18 +16,32 @@ class HomeController extends GetxController {
   HomeModel homeModel = HomeModel(data: [], success: true, status: 200);
   HomeApiController homeApiController = HomeApiController();
   var pageSelectedIndex = 0.obs;
+  var currentPageIndex = 0.obs;
+  var selectedValue = ManagerStrings.size.obs;
+  final List<String> items = [
+    ManagerStrings.size,
+    "S",
+    "M",
+    "L",
+    "XL",
+    "XXL",
+  ];
+
 
   final Map<int, String> routes = {
     0: Routes.cartView,
-    1: Routes.brandView,
+    1: Routes.detailsView,
     2: Routes.homeView,
-    3: Routes.settingsView,
-    4: Routes.profileView, // Profile tab
+    3: Routes.detailsView,
+    4: Routes.profileView,
   };
 
   void navigateToScreen(int index) {
     pageSelectedIndex.value = index;
     Get.toNamed(routes[index]!);
+  }
+  void onPageChanged(int index) {
+    currentPageIndex.value = index;
   }
 
   @override
@@ -59,6 +74,11 @@ class HomeController extends GetxController {
     homeModel.data.first.photos = photos;
     homeModel.data.first.unit = unit;
     Navigator.pushNamed(context, Routes.detailsView);
+  }
+
+
+  void changeDropValue(String newValue) {
+    selectedValue.value = newValue;
   }
 
 

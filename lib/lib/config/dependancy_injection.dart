@@ -1,5 +1,6 @@
 
 import 'package:advanced_ecommerse/lib/featutres/profile/controller/profile_controller.dart';
+import 'package:advanced_ecommerse/lib/featutres/settings/presentation/controller/settings_controller.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:get/get_core/src/get_main.dart';
@@ -37,6 +38,10 @@ initHome() {
 initProfile() {
 
   Get.put<ProfileController>(ProfileController());
+}
+initSettings() {
+
+  Get.put<SettingsController>(SettingsController());
 }
 // initLocale(){
 //   Get.put<LocaleNotifierController>(LocaleNotifierController());

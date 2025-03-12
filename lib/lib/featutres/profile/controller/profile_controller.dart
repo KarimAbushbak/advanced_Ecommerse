@@ -18,7 +18,7 @@ class ProfileController extends GetxController{
     0: Routes.cartView,
     1: Routes.brandView,
     2: Routes.homeView,
-    3: Routes.settingsView,
+    3: Routes.detailsView,
     4: Routes.profileView, // Profile tab
   };
 
@@ -63,7 +63,6 @@ class ProfileController extends GetxController{
     update(); // Refresh UI
   }
   void logout() async {
-    print("Logout button clicked!"); // Debugging
 
     await appSettingsSharedPreferences.clear();
     Get.offAllNamed(Routes.loginView);;

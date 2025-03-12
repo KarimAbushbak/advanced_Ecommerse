@@ -54,6 +54,7 @@ class ManagerStrings {
   static const String callUs = 'Call Us';
   static const String sendEmail = 'Send Email';
   static const String logout = 'Logout';
+  static const String size = 'Size';
 
 
 }

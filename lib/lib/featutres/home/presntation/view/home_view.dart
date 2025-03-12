@@ -24,31 +24,47 @@ class HomeView extends StatelessWidget {
           bottomNavigationBar: Obx(
             () => BottomNavigationBar(
               currentIndex: controller.pageSelectedIndex.value,
-              onTap: controller.navigateToScreen,
-              // Directly call the function
-              selectedItemColor: Colors.blueAccent,
-              unselectedItemColor: Colors.grey,
+              onTap: (index) => controller.navigateToScreen(index),
               showUnselectedLabels: true,
               type: BottomNavigationBarType.fixed,
+              selectedItemColor: Colors.blueAccent,
+              // Default color for selected items
+              unselectedItemColor: Colors.grey,
+              // Default color for unselected items
               items: [
                 BottomNavigationBarItem(
-                  icon: Icon(Icons.add_shopping_cart),
+                  icon: Icon(Icons.add_shopping_cart,
+                      color: controller.pageSelectedIndex.value == 0
+                          ? Colors.blue
+                          : Colors.grey),
                   label: ManagerStrings.cart,
                 ),
                 BottomNavigationBarItem(
-                  icon: Icon(Icons.local_activity_outlined),
+                  icon: Icon(Icons.local_activity_outlined,
+                      color: controller.pageSelectedIndex.value == 1
+                          ? Colors.blue
+                          : Colors.grey),
                   label: ManagerStrings.brand,
                 ),
                 BottomNavigationBarItem(
-                  icon: Icon(Icons.home_filled),
+                  icon: Icon(Icons.home_filled,
+                      color: controller.pageSelectedIndex.value == 2
+                          ? Colors.blue
+                          : Colors.grey),
                   label: ManagerStrings.home,
                 ),
                 BottomNavigationBarItem(
-                  icon: Icon(Icons.settings),
+                  icon: Icon(Icons.settings,
+                      color: controller.pageSelectedIndex.value == 3
+                          ? Colors.blue
+                          : Colors.grey),
                   label: ManagerStrings.settings,
                 ),
                 BottomNavigationBarItem(
-                  icon: Icon(Icons.person),
+                  icon: Icon(Icons.person,
+                      color: controller.pageSelectedIndex.value == 4
+                          ? Colors.blue
+                          : Colors.grey),
                   label: ManagerStrings.profile,
                 ),
               ],
@@ -383,16 +399,30 @@ class HomeView extends StatelessWidget {
                           child: Column(
                             crossAxisAlignment: CrossAxisAlignment.start,
                             children: [
-                              Container(
-                                width: 200,
-                                height: 200,
-                                decoration: BoxDecoration(
-                                  image: DecorationImage(
-                                    image: NetworkImage(
-                                      controller
-                                          .homeModel.data[index].thumbnailImage,
+                              InkWell(
+                                onTap: () {
+                                  controller.productDetails(
+                                    context,
+                                    controller.homeModel.data[index].id,
+                                    controller
+                                        .homeModel.data[index].thumbnailImage,
+                                    controller.homeModel.data[index].name,
+                                    controller.homeModel.data[index].basePrice,
+                                    controller.homeModel.data[index].photos,
+                                    controller.homeModel.data[index].unit,
+                                  );
+                                },
+                                child: Container(
+                                  width: 200,
+                                  height: 200,
+                                  decoration: BoxDecoration(
+                                    image: DecorationImage(
+                                      image: NetworkImage(
+                                        controller.homeModel.data[index]
+                                            .thumbnailImage,
+                                      ),
+                                      fit: BoxFit.cover,
                                     ),
-                                    fit: BoxFit.cover,
                                   ),
                                 ),
                               ),
@@ -463,15 +493,28 @@ class HomeView extends StatelessWidget {
                   itemCount: 4,
                   // Only 4 images
                   itemBuilder: (context, index) {
-                    return Container(
-                      decoration: BoxDecoration(
-                        image: DecorationImage(
-                          image: NetworkImage(
-                              controller.homeModel.data[index].thumbnailImage),
-                          // Replace with your images
-                          fit: BoxFit.cover, // Cover the whole container
+                    return InkWell(
+                      onTap: () {
+                        controller.productDetails(
+                          context,
+                          controller.homeModel.data[index].id,
+                          controller.homeModel.data[index].thumbnailImage,
+                          controller.homeModel.data[index].name,
+                          controller.homeModel.data[index].basePrice,
+                          controller.homeModel.data[index].photos,
+                          controller.homeModel.data[index].unit,
+                        );
+                      },
+                      child: Container(
+                        decoration: BoxDecoration(
+                          image: DecorationImage(
+                            image: NetworkImage(controller
+                                .homeModel.data[index].thumbnailImage),
+                            // Replace with your images
+                            fit: BoxFit.cover, // Cover the whole container
+                          ),
+                          borderRadius: BorderRadius.circular(10),
                         ),
-                        borderRadius: BorderRadius.circular(10),
                       ),
                     );
                   },

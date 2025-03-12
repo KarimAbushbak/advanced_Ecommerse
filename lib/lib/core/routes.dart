@@ -1,4 +1,5 @@
 import 'package:advanced_ecommerse/lib/core/resources/manager_strings.dart';
+import 'package:advanced_ecommerse/lib/featutres/settings/presentation/view/screen/settings_view.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
@@ -7,6 +8,7 @@ import '../featutres/authntication/presntaion/view/login_view.dart';
 import '../featutres/authntication/presntaion/view/register_view.dart';
 import '../featutres/home/presntation/view/home_view.dart';
 import '../featutres/outboarding/presntation/view/outboarding_view.dart';
+import '../featutres/product_destails/presntation/details_view.dart';
 import '../featutres/profile/presntation/view/profile_view.dart';
 import '../featutres/splash/presntation/view/splash_screen.dart';
 
@@ -18,7 +20,6 @@ class Routes {
   static const String loginView = '/loginView';
   static const String registerView = '/registerView';
   static const String profileView = '/profileView';
-  static const String localeView = '/localeView';
   static const String detailsView = '/detailsView';
   static const String settingsView = '/settingsView';
   static const String cartView = '/cartView';
@@ -47,9 +48,12 @@ class RouteGenerator {
       case Routes.profileView:
         initProfile();
         return MaterialPageRoute(builder: (_) =>  ProfileView());
-      // case Routes.detailsView:
-      //   initHome();
-      //   return MaterialPageRoute(builder: (_) =>  DetailsView());
+        case Routes.settingsView:
+        initSettings();
+        return MaterialPageRoute(builder: (_) =>  SettingsView());
+      case Routes.detailsView:
+        initHome();
+        return MaterialPageRoute(builder: (_) =>  DetailsView());
       // case Routes.localeView:
       //   initLocale();
       //
