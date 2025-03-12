@@ -171,9 +171,104 @@ class DetailsView extends StatelessWidget {
                         )),
                       ),
                     ),
+                    Container(
+                      margin: EdgeInsets.symmetric(horizontal: 8),
+                      child: Row(
+                        children: [
+                          Container(
+                            width: 40,
+                            height: 40,
+                            child: CircleAvatar(
+                              backgroundColor: Colors.blue,
+
+                            ),
+                          ),
+                          SizedBox(width: ManagerWidth.w28,),
+                          Container(
+                            width: 40,
+                            height: 40,
+                            child: CircleAvatar(
+                              backgroundColor: Colors.red,
+
+                            ),
+                          ),
+                          SizedBox(width: ManagerWidth.w28,),
+
+                          Container(
+                            width: 40,
+                            height: 40,
+                            child: CircleAvatar(
+                              backgroundColor: Colors.black,
+
+                            ),
+                          ),
+
+                        ],
+                      ),
+                    ),
+
                   ],
                 ),
+              ),
+              SizedBox(height: ManagerHeight.h28,),
+              Container(
+                margin: EdgeInsets.symmetric(horizontal: ManagerWidth.w8),
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.start,
+
+                  children: [
+                    Text(
+                        ManagerStrings.similarProducts,
+                        style: TextStyle(
+                            color: ManagerColors.black,
+                            fontFamily: ManagerFontFamily.appFont,
+                            fontSize: ManagerFontSizes.s20,
+                            fontWeight: ManagerFontWeight.bold
+                        )
+                    ),
+                  ],
+                ),
+              ),
+              GridView.builder(
+                gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+                  crossAxisCount: 2, // 2 columns
+                  crossAxisSpacing: 10, // Space between columns
+                  mainAxisSpacing: 10, // Space between rows
+                ),
+                padding: EdgeInsets.all(10),
+                itemCount: 4,
+                // Only 4 images
+                itemBuilder: (context, index) {
+                  return InkWell(
+                    onTap: () {
+                      controller.productDetails(
+                        context,
+                        controller.homeModel.data[index].id,
+                        controller.homeModel.data[index].thumbnailImage,
+                        controller.homeModel.data[index].name,
+                        controller.homeModel.data[index].basePrice,
+                        controller.homeModel.data[index].photos,
+                        controller.homeModel.data[index].unit,
+                      );
+                    },
+                    child: Container(
+                      decoration: BoxDecoration(
+                        image: DecorationImage(
+                          image: NetworkImage(controller
+                              .homeModel.data[index].thumbnailImage),
+                          // Replace with your images
+                          fit: BoxFit.cover, // Cover the whole container
+                        ),
+                        borderRadius: BorderRadius.circular(10),
+                      ),
+                    ),
+                  );
+                },
+                shrinkWrap: true,
+                // Prevent unnecessary scrolling
+                physics: NeverScrollableScrollPhysics(),
               )
+
 
 
 

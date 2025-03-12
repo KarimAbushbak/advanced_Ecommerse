@@ -55,6 +55,7 @@ class ManagerStrings {
   static const String sendEmail = 'Send Email';
   static const String logout = 'Logout';
   static const String size = 'Size';
+  static const String similarProducts = 'Similar Products';
 
 
 }
