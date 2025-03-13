@@ -15,6 +15,9 @@ class Constants {
   static const String databaseNotesIdColumnName = 'id';
   static const String databaseNotesTitleColumnName = 'title';
   static const String databaseNotesContentColumnName = 'content';
+  static const String name = 'name';
+  static const String price = 'price';
+  static const String image = 'image';
 }
 
 class KeyConstants {

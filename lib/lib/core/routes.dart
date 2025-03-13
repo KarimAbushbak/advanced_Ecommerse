@@ -48,16 +48,17 @@ class RouteGenerator {
         return MaterialPageRoute(builder: (_) => HomeView());
       case Routes.profileView:
         initProfile();
-        return MaterialPageRoute(builder: (_) =>  ProfileView());
-        case Routes.settingsView:
+        return MaterialPageRoute(builder: (_) => ProfileView());
+      case Routes.settingsView:
         initSettings();
-        return MaterialPageRoute(builder: (_) =>  SettingsView());
+        return MaterialPageRoute(builder: (_) => SettingsView());
       case Routes.detailsView:
         initHome();
-        return MaterialPageRoute(builder: (_) =>  DetailsView());
+        return MaterialPageRoute(builder: (_) => DetailsView());
       case Routes.cartView:
-        initHome();
-        return MaterialPageRoute(builder: (_) =>  CartView());
+        initCart();
+
+        return MaterialPageRoute(builder: (_) => CartView());
       // case Routes.localeView:
       //   initLocale();
       //

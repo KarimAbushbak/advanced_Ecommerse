@@ -13,8 +13,7 @@ import '../response/login_response.dart';
 
 
 class AuthApiController with Helpers {
-  AppSettingsSharedPreferences appSettingsSharedPreferences =
-  AppSettingsSharedPreferences();
+AppSettingsSharedPreferences appSettingsSharedPreferences = AppSettingsSharedPreferences();
 
   Future post({
     required String endPoint,

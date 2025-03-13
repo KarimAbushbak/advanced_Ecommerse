@@ -1,3 +1,4 @@
+import 'package:advanced_ecommerse/lib/core/constants.dart';
 import 'package:advanced_ecommerse/lib/core/resources/manager_font_sizes.dart';
 import 'package:advanced_ecommerse/lib/core/resources/manager_font_weight.dart';
 import 'package:advanced_ecommerse/lib/core/resources/manager_fonts.dart';
@@ -32,25 +33,6 @@ class DetailsView extends StatelessWidget {
               color: ManagerColors.profileIconsColor,
             ),
           ),
-          actions: [
-            Container(
-                margin: EdgeInsets.symmetric(horizontal: ManagerWidth.w14),
-                child: IconButton(
-                  onPressed: () {
-                    cartController.addToCart({
-                      "name": controller.homeModel.data.first.name,
-                      "price": controller.homeModel.data.first.basePrice,
-                      "image": controller.homeModel.data.first.thumbnailImage,
-                    });
-                    Get.snackbar("تمت الإضافة", "تمت إضافة المنتج إلى السلة",
-                        snackPosition: SnackPosition.BOTTOM);
-                  },
-                  icon: Icon(
-                    Icons.add_shopping_cart,
-                    color: Colors.black,
-                  ),
-                ))
-          ],
         ),
         bottomNavigationBar: Obx(
           () => BottomNavigationBar(
@@ -359,10 +341,11 @@ class DetailsView extends StatelessWidget {
                         child: ElevatedButton(
                           onPressed: () {
                             cartController.addToCart({
-                              "name": controller.homeModel.data.first.name,
-                              "price":
+                              Constants.name:
+                                  controller.homeModel.data.first.name,
+                              Constants.price:
                                   controller.homeModel.data.first.basePrice,
-                              "image": controller
+                              Constants.image: controller
                                   .homeModel.data.first.thumbnailImage,
                             });
 

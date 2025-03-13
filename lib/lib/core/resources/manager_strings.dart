@@ -59,6 +59,11 @@ class ManagerStrings {
   static const String addToCart = 'Add to Cart';
   static const String productAdded = 'Product Added';
   static const String productHasBeenAdded = 'Product Has Been Added to Cart';
+  static const String cartIsEmpty = 'Cart Is Empty';
+  static const String hasBeenDeleted = 'has Been Deleted';
+  static const String quantity = 'Quantity';
+  static const String delivery = 'Delivery';
+  static const String totalPrice = 'totalPrice';
 
 
 }
