@@ -189,7 +189,7 @@ class HomeView extends StatelessWidget {
                   height: ManagerHeight.h8,
                 ),
                 Container(
-                  height: ManagerHeight.h80,
+                  height: ManagerHeight.h100,
                   child: TabBarView(
                     children: [
                       CategoryListView(categories: [

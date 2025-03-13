@@ -42,7 +42,7 @@ initProfile() {
 }
 initSettings() {
 
-  Get.put<SettingsController>(SettingsController());
+  Get.put<SettingController>(SettingController());
 }
 initCart() {
 

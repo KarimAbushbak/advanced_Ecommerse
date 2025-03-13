@@ -15,7 +15,7 @@ class HomeController extends GetxController {
   var selectedIndex = 0.obs;
   HomeModel homeModel = HomeModel(data: [], success: true, status: 200);
   HomeApiController homeApiController = HomeApiController();
-  var pageSelectedIndex = 0.obs;
+  var pageSelectedIndex = 2.obs;
   var currentPageIndex = 0.obs;
   var selectedValue = ManagerStrings.size.obs;
   final List<String> items = [
@@ -32,7 +32,7 @@ class HomeController extends GetxController {
     0: Routes.cartView,
     1: Routes.detailsView,
     2: Routes.homeView,
-    3: Routes.detailsView,
+    3: Routes.settingsView,
     4: Routes.profileView,
   };
 

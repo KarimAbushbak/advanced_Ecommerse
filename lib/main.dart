@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
 
 import 'lib/config/dependancy_injection.dart';
+import 'lib/core/constants.dart';
 import 'lib/core/routes.dart';
 
 void main() async {
@@ -15,10 +17,24 @@ class MyApp extends StatelessWidget {
   // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
-    return GetMaterialApp(
-      debugShowCheckedModeBanner: false,
-      initialRoute: Routes.profileView,
-      onGenerateRoute: RouteGenerator.getRoute,
+    return ScreenUtilInit(
+      splitScreenMode: true,
+      designSize:  Size(
+        Constants.designDeviceWidth,
+        Constants.designDeviceHeight,
+      ),
+      builder: (context, child) {
+        return GetMaterialApp(
+          theme: ThemeData(useMaterial3: true),
+          debugShowCheckedModeBanner: false,
+          initialRoute: Routes.splashScreen,
+          onGenerateRoute: RouteGenerator.getRoute,
+
+
+
+
+        );
+      },
     );
   }
 }

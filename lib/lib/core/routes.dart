@@ -33,8 +33,6 @@ class RouteGenerator {
       case Routes.splashScreen:
         initSplash();
         return MaterialPageRoute(builder: (_) => const SplashScreen());
-      // case Routes.languagePage:
-      //   return MaterialPageRoute(builder: (_) => const LanguagePage());
       case Routes.outBoarding:
         return MaterialPageRoute(builder: (_) => const OutBoardingView());
       case Routes.loginView:
@@ -51,13 +49,12 @@ class RouteGenerator {
         return MaterialPageRoute(builder: (_) => ProfileView());
       case Routes.settingsView:
         initSettings();
-        return MaterialPageRoute(builder: (_) => SettingsView());
+        return MaterialPageRoute(builder: (_) => SettingView());
       case Routes.detailsView:
         initHome();
         return MaterialPageRoute(builder: (_) => DetailsView());
       case Routes.cartView:
         initCart();
-
         return MaterialPageRoute(builder: (_) => CartView());
       // case Routes.localeView:
       //   initLocale();

@@ -1,20 +1,57 @@
+import 'package:flutter/cupertino.dart';
+import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-
+import '../../../../core/resources/manager_assets.dart';
+import '../../../../core/resources/manager_strings.dart';
 import '../../../../core/routes.dart';
+import '../../../../core/storage/local/database/shared_preferences/app_settings_shared_preferences.dart';
 
-class SettingsController extends GetxController{
+class SettingController extends GetxController {
+  AppSettingsSharedPreferences appSettingsSharedPreferences =
+      AppSettingsSharedPreferences();
+
   var pageSelectedIndex = 0.obs;
 
-  final Map<int, String> routes = {
-    0: Routes.cartView,
-    1: Routes.brandView,
-    2: Routes.homeView,
-    3: Routes.settingsView,
-    4: Routes.profileView, // Profile tab
-  };
+  var selectedCountry = ManagerStrings.country.obs; // For the first list
+  var isArrowForwardCountry = true.obs;
 
-  void navigateToScreen(int index) {
-    pageSelectedIndex.value = index;
-    Get.toNamed(routes[index]!);
+  var selectedLanguage = ManagerStrings.language.obs; // For the second list
+  var isArrowForwardLanguage = true.obs;
+
+  var selectedGender = ManagerStrings.gender.obs; // Default selection
+  var isArrowForwardGender = true.obs; // Icon state for gender list
+
+  void toggleCountryIcon() {
+    isArrowForwardCountry.value =
+        !isArrowForwardCountry.value; // Toggle first list icon
   }
-}
+
+  void selectCountry(String country) {
+    selectedCountry.value = country; // Update first list selection
+    isArrowForwardCountry.value = true; // Reset icon
+  }
+
+  void toggleLanguageIcon() {
+    isArrowForwardLanguage.value =
+        !isArrowForwardLanguage.value; // Toggle second list icon
+  }
+
+  void selectLanguage(String language) {
+    selectedLanguage.value = language; // Update second list selection
+    isArrowForwardLanguage.value = true; // Reset icon
+  }
+
+  void toggleGenderIcon() {
+    isArrowForwardGender.value =
+        !isArrowForwardGender.value; // Toggle gender icon
+  }
+  void selectGender(String gender) async {
+    selectedGender.value = gender;
+    isArrowForwardGender.value = true;
+
+// var selectedProfileImage = ManagerAssets.home25.obs; // Default image
+
+// void selectProfileImage(String imagePath) {
+//   selectedProfileImage.value = imagePath;
+//
+}}

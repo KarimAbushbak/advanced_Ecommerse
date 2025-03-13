@@ -40,6 +40,7 @@ class ManagerAssets {
   static const String home20 = 'assets/images/home/home20.png';
   static const String home21 = 'assets/images/home/home21.jpg';
   static const String home22 = 'assets/images/home/home22.png';
+  static const String home23 = 'assets/images/home/home23.png';
   static const String maleProfile = 'assets/images/profile/profile1.png';
   static const String femaleProfile = 'assets/images/profile/profile2.png';
 }

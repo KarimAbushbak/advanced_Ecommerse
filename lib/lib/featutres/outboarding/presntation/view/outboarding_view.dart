@@ -211,7 +211,7 @@ class OutBoardingView extends StatelessWidget {
               child: BaseButton(onPressed: (){
                 Get.offAllNamed(Routes.loginView);
 
-              },)
+              },
 
 
             ),
@@ -219,7 +219,7 @@ class OutBoardingView extends StatelessWidget {
 
 
 
-        ],
+          )],
       ),
     );
   }

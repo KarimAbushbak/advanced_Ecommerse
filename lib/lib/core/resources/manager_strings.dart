@@ -63,7 +63,18 @@ class ManagerStrings {
   static const String hasBeenDeleted = 'has Been Deleted';
   static const String quantity = 'Quantity';
   static const String delivery = 'Delivery';
-  static const String totalPrice = 'totalPrice';
-
+  static const String totalPrice = 'Total Price';
+  static const String country = 'Country';
+  static const String language = 'Language';
+  static const String australia = 'Australia';
+  static const String canada = 'Canada';
+  static const String poland = 'Poland';
+  static const String belgium = 'Belgium';
+  static const String qatar = 'Qatar';
+  static const String arabic = 'Arabic';
+  static const String english = 'English';
+  static const String gender='Gender';
+  static const String male='Male';
+  static const String female='Female';
 
 }

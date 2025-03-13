@@ -1,4 +1,5 @@
 import 'package:advanced_ecommerse/lib/featutres/profile/controller/profile_controller.dart';
+import 'package:advanced_ecommerse/lib/featutres/settings/presentation/controller/settings_controller.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import '../../../../core/resources/manager_assets.dart';
@@ -18,6 +19,8 @@ class ProfileView extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final HomeController homeController = Get.put(HomeController());
+    final SettingController settingController = Get.put(SettingController());
+
 
     return GetBuilder<ProfileController>(builder: (controller) {
       return Scaffold(
@@ -100,13 +103,17 @@ class ProfileView extends StatelessWidget {
                 children: [
                   Column(
                     children: [
-                      Container(
+                      Obx(() => Container(
                         width: 140,
                         height: 140,
                         child: CircleAvatar(
-                          backgroundImage: AssetImage(ManagerAssets.home22),
+                          backgroundImage: AssetImage(
+                            settingController.selectedGender.value == ManagerStrings.male
+                                ? ManagerAssets.home23
+                                : ManagerAssets.home22,
+                          ),
                         ),
-                      ),
+                      )),
                       SizedBox(
                         height: ManagerHeight.h16,
                       ),
