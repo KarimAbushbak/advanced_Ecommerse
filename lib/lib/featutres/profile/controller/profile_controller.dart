@@ -11,22 +11,9 @@ import '../../../core/storage/local/database/shared_preferences/app_settings_sha
 class ProfileController extends GetxController{
   AppSettingsSharedPreferences appSettingsSharedPreferences =
   AppSettingsSharedPreferences();
-  var pageSelectedIndex = 0.obs;
 
 
-  final Map<int, String> routes = {
-    0: Routes.cartView,
-    1: Routes.brandView,
-    2: Routes.homeView,
-    3: Routes.detailsView,
-    4: Routes.profileView, // Profile tab
-  };
 
-  void navigateToScreen(int index) {
-    pageSelectedIndex.value = index;
-    Get.toNamed(routes[index]!);
-
-  }
 
   void showEditDialog(BuildContext context) {
     TextEditingController usernameController =

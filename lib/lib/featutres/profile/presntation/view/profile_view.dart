@@ -17,6 +17,8 @@ class ProfileView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final HomeController homeController = Get.put(HomeController());
+
     return GetBuilder<ProfileController>(builder: (controller) {
       return Scaffold(
         appBar: AppBar(
@@ -42,8 +44,8 @@ class ProfileView extends StatelessWidget {
         ),
         bottomNavigationBar: Obx(
           () => BottomNavigationBar(
-            currentIndex: controller.pageSelectedIndex.value,
-            onTap: controller.navigateToScreen,
+            currentIndex: homeController.pageSelectedIndex.value,
+            onTap: homeController.navigateToScreen,
             // Directly call the function
             selectedItemColor: Colors.blueAccent,
             unselectedItemColor: Colors.grey,
@@ -228,7 +230,6 @@ class ProfileView extends StatelessWidget {
               child: ElevatedButton(
                   onPressed: () {
                     controller.logout();
-
                   },
                   style: ElevatedButton.styleFrom(
                     backgroundColor: ManagerColors.transparent,
