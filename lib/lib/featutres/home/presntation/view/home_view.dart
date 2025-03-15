@@ -6,6 +6,7 @@ import 'package:advanced_ecommerse/lib/core/resources/manager_height.dart';
 import 'package:advanced_ecommerse/lib/core/resources/manager_strings.dart';
 import 'package:advanced_ecommerse/lib/core/resources/manager_width.dart';
 import 'package:advanced_ecommerse/lib/featutres/home/presntation/controller/home_controller.dart';
+import 'package:advanced_ecommerse/lib/featutres/product_destails/presntation/controller/details_controller.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
@@ -18,6 +19,8 @@ class HomeView extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return GetBuilder<HomeController>(builder: (controller) {
+      final DetailsController detailsController = Get.put(DetailsController());
+
       return DefaultTabController(
         length: 2,
         child: Scaffold(
@@ -400,17 +403,8 @@ class HomeView extends StatelessWidget {
                             crossAxisAlignment: CrossAxisAlignment.start,
                             children: [
                               InkWell(
-                                onTap: () {
-                                  controller.productDetails(
-                                    context,
-                                    controller.homeModel.data[index].id,
-                                    controller
-                                        .homeModel.data[index].thumbnailImage,
-                                    controller.homeModel.data[index].name,
-                                    controller.homeModel.data[index].basePrice,
-                                    controller.homeModel.data[index].photos,
-                                    controller.homeModel.data[index].unit,
-                                  );
+                                onTap: (){
+                                  detailsController.readDetails(controller.homeModel.data[index].id,context);
                                 },
                                 child: Container(
                                   width: 200,
@@ -494,17 +488,10 @@ class HomeView extends StatelessWidget {
                   // Only 4 images
                   itemBuilder: (context, index) {
                     return InkWell(
-                      onTap: () {
-                        controller.productDetails(
-                          context,
-                          controller.homeModel.data[index].id,
-                          controller.homeModel.data[index].thumbnailImage,
-                          controller.homeModel.data[index].name,
-                          controller.homeModel.data[index].basePrice,
-                          controller.homeModel.data[index].photos,
-                          controller.homeModel.data[index].unit,
-                        );
+                      onTap: (){
+                        detailsController.readDetails(controller.homeModel.data[index].id,context);
                       },
+
                       child: Container(
                         decoration: BoxDecoration(
                           image: DecorationImage(

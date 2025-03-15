@@ -51,7 +51,7 @@ class RouteGenerator {
         initSettings();
         return MaterialPageRoute(builder: (_) => SettingView());
       case Routes.detailsView:
-        initHome();
+        initDetails();
         return MaterialPageRoute(builder: (_) => DetailsView());
       case Routes.cartView:
         initCart();

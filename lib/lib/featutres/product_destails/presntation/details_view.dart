@@ -2,6 +2,7 @@ import 'package:advanced_ecommerse/lib/core/constants.dart';
 import 'package:advanced_ecommerse/lib/core/resources/manager_font_sizes.dart';
 import 'package:advanced_ecommerse/lib/core/resources/manager_font_weight.dart';
 import 'package:advanced_ecommerse/lib/core/resources/manager_fonts.dart';
+import 'package:advanced_ecommerse/lib/featutres/product_destails/presntation/controller/details_controller.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import '../../../core/resources/manager_colors.dart';
@@ -17,7 +18,9 @@ class DetailsView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return GetBuilder<HomeController>(builder: (controller) {
+    final HomeController homeController = Get.put(HomeController());
+
+    return GetBuilder<DetailsController>(builder: (controller) {
       final CartController cartController = Get.put(CartController());
 
       return Scaffold(
@@ -36,8 +39,8 @@ class DetailsView extends StatelessWidget {
         ),
         bottomNavigationBar: Obx(
           () => BottomNavigationBar(
-            currentIndex: controller.pageSelectedIndex.value,
-            onTap: controller.navigateToScreen,
+            currentIndex: homeController.pageSelectedIndex.value,
+            onTap: homeController.navigateToScreen,
             // Directly call the function
             selectedItemColor: Colors.blueAccent,
             unselectedItemColor: Colors.grey,
@@ -91,8 +94,8 @@ class DetailsView extends StatelessWidget {
                               borderRadius: BorderRadius.circular(15),
                               image: DecorationImage(
                                 image: NetworkImage(
-                                  controller
-                                      .homeModel.data.first.thumbnailImage,
+                                  controller.productDetailsModel.data.first
+                                      .photos[index].path,
                                 ),
                                 fit: BoxFit.cover,
                               ),
@@ -134,7 +137,8 @@ class DetailsView extends StatelessWidget {
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: [
                         Text(
-                          controller.homeModel.data.first.name.toUpperCase(),
+                          controller.productDetailsModel.data.first.name
+                              .toUpperCase(),
                           style: TextStyle(
                               fontSize: ManagerFontSizes.s20,
                               fontWeight: ManagerFontWeight.w800,
@@ -143,7 +147,8 @@ class DetailsView extends StatelessWidget {
                         Row(
                           children: [
                             Text(
-                                controller.homeModel.data.first.basePrice
+                                controller.productDetailsModel.data.first
+                                    .calculablePrice
                                     .toString(),
                                 style: TextStyle(
                                     color: ManagerColors.black,
@@ -153,7 +158,9 @@ class DetailsView extends StatelessWidget {
                             SizedBox(
                               width: ManagerWidth.w4,
                             ),
-                            Text("r.s",
+                            Text(
+                                controller.productDetailsModel.data.first
+                                    .currencySymbol,
                                 style: TextStyle(
                                   fontSize: ManagerFontSizes.s16,
                                 ))
@@ -165,7 +172,7 @@ class DetailsView extends StatelessWidget {
                   SizedBox(
                     height: ManagerHeight.h12,
                   ),
-                  Text("data"),
+                  Text(controller.productDetailsModel.data.first.description),
                   SizedBox(
                     height: ManagerHeight.h28,
                   ),
@@ -192,7 +199,8 @@ class DetailsView extends StatelessWidget {
                                   onChanged: (String? newValue) {
                                     controller.changeDropValue(newValue!);
                                   },
-                                  items: controller.items
+                                  items: controller.productDetailsModel.data
+                                      .first.choiceOptions.first.options
                                       .map<DropdownMenuItem<String>>(
                                           (String value) {
                                     return DropdownMenuItem<String>(
@@ -269,20 +277,20 @@ class DetailsView extends StatelessWidget {
                     itemBuilder: (context, index) {
                       return InkWell(
                         onTap: () {
-                          controller.productDetails(
+                          homeController.productDetails(
                             context,
-                            controller.homeModel.data[index].id,
-                            controller.homeModel.data[index].thumbnailImage,
-                            controller.homeModel.data[index].name,
-                            controller.homeModel.data[index].basePrice,
-                            controller.homeModel.data[index].photos,
-                            controller.homeModel.data[index].unit,
+                            homeController.homeModel.data.first.id,
+                            homeController.homeModel.data.first.thumbnailImage,
+                            homeController.homeModel.data.first.name,
+                            homeController.homeModel.data.first.basePrice,
+                            homeController.homeModel.data.first.photos,
+                            homeController.homeModel.data.first.unit,
                           );
                         },
                         child: Container(
                           decoration: BoxDecoration(
                             image: DecorationImage(
-                              image: NetworkImage(controller
+                              image: NetworkImage(homeController
                                   .homeModel.data[index].thumbnailImage),
                               // Replace with your images
                               fit: BoxFit.cover, // Cover the whole container
@@ -341,12 +349,12 @@ class DetailsView extends StatelessWidget {
                         child: ElevatedButton(
                           onPressed: () {
                             cartController.addToCart({
-                              Constants.name:
-                                  controller.homeModel.data.first.name,
-                              Constants.price:
-                                  controller.homeModel.data.first.basePrice,
-                              Constants.image: controller
-                                  .homeModel.data.first.thumbnailImage,
+                              Constants.name: controller
+                                  .productDetailsModel.data.first.name,
+                              Constants.price: controller.productDetailsModel
+                                  .data.first.calculablePrice,
+                              Constants.image: controller.productDetailsModel
+                                  .data.first.thumbnailImage,
                             });
 
                             Get.snackbar(ManagerStrings.productAdded,

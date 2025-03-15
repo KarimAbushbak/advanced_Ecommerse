@@ -1,5 +1,6 @@
 
 import 'package:advanced_ecommerse/lib/featutres/cart/presntation/controller/cart_controller.dart';
+import 'package:advanced_ecommerse/lib/featutres/product_destails/presntation/controller/details_controller.dart';
 import 'package:advanced_ecommerse/lib/featutres/profile/controller/profile_controller.dart';
 import 'package:advanced_ecommerse/lib/featutres/settings/presentation/controller/settings_controller.dart';
 import 'package:flutter/material.dart';
@@ -47,6 +48,9 @@ initSettings() {
 initCart() {
 
   Get.put<CartController>(CartController());
+}initDetails() {
+
+  Get.put<DetailsController>(DetailsController());
 }
 // initLocale(){
 //   Get.put<LocaleNotifierController>(LocaleNotifierController());

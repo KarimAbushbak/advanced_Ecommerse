@@ -48,6 +48,9 @@ class ApiRequest {
   static const String login = '$apiAuth/login';
   static const String register = '$apiAuth/signup';
   static const String home = '$api/products/home';
+  static String productDetails(int id) => "$api/products/$id";
+
+
 }
 
 bool isURLValid(String url) {
